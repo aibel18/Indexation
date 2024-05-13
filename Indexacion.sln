@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Indexacion", "Indexacion\Indexacion.vcproj", "{A97A3F30-E8C8-4001-B7E6-C8D41A50A15A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A97A3F30-E8C8-4001-B7E6-C8D41A50A15A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A97A3F30-E8C8-4001-B7E6-C8D41A50A15A}.Debug|Win32.Build.0 = Debug|Win32
+		{A97A3F30-E8C8-4001-B7E6-C8D41A50A15A}.Release|Win32.ActiveCfg = Release|Win32
+		{A97A3F30-E8C8-4001-B7E6-C8D41A50A15A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
