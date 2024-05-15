@@ -80,7 +80,7 @@ bool campos2P(Nodo *&temp){
 	temp = temp->anterior;
 	return false;
 }
-bool campoTamaño(Nodo * & temp){
+bool campoTamano(Nodo * & temp){
 
 	if(temp != 0 && temp->token == IDE && temp->siguiente !=0 && temp->siguiente->token == RESER ){
 
@@ -103,7 +103,7 @@ bool campos3P(Nodo *&temp){
 	if(temp != 0 && !temp->informacion.compare("(")){
 		temp = temp->siguiente;
 
-		while( campoTamaño(temp) ){
+		while( campoTamano(temp) ){
 
 			if(temp !=0 && !temp->informacion.compare(")") && temp->siguiente ==0){
 				temp = temp->siguiente;

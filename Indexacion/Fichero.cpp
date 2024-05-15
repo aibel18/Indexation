@@ -119,10 +119,10 @@ void FicheroDatos::leerRegistro(unsigned long pos,RegistroDatos & nuevo){
 	}	
 }
 
-void FicheroDatos::leerTamaño(int &tamaño){
+void FicheroDatos::leerTamano(int &tamano){
 	if(f.is_open()){
 		f.seekg (0, ios::beg);
-		f.read(reinterpret_cast<char *>(&tamaño), sizeof(int) );
+		f.read(reinterpret_cast<char *>(&tamano), sizeof(int) );
 	}	
 }
 void FicheroDatos::leerNumeroColumnas(int &columnas){
@@ -131,10 +131,10 @@ void FicheroDatos::leerNumeroColumnas(int &columnas){
 		f.read(reinterpret_cast<char *>(&columnas), sizeof(int) );
 	}	
 }
-void FicheroDatos::leerEncabezado(int tamaño,char* cadena){
+void FicheroDatos::leerEncabezado(int tamano,char* cadena){
 	if(f.is_open()){
 		f.seekg (8, ios::beg);
-		f.read(reinterpret_cast<char *>(cadena), tamaño );
+		f.read(reinterpret_cast<char *>(cadena), tamano );
 	}	
 }
 FicheroDatos::~FicheroDatos(){
@@ -159,7 +159,7 @@ FicheroIndice::FicheroIndice(string fdatos,unsigned int tam){
 	}	
 }
 
-bool FicheroIndice::crear(string fdatos, int columnas, int tamañoC){
+bool FicheroIndice::crear(string fdatos, int columnas, int tamanoC){
 	
 	f.open(fdatos.c_str(),ios::in | ios::out);
 
@@ -167,10 +167,10 @@ bool FicheroIndice::crear(string fdatos, int columnas, int tamañoC){
 		
 		f.open(fdatos.c_str(),ios::in | ios::out | ios::trunc);
 		f.seekg (0, ios::beg);
-		tamRegistro = (sizeof(int)+tamañoC)*columnas;
+		tamRegistro = (sizeof(int)+tamanoC)*columnas;
 
 		f.write(reinterpret_cast<char *>(&columnas), sizeof(int));
-		f.write(reinterpret_cast<char *>(&tamañoC), sizeof(int));
+		f.write(reinterpret_cast<char *>(&tamanoC), sizeof(int));
 
 		int raiz;
 		f.write(reinterpret_cast<char *>(&raiz), sizeof(int));
@@ -262,13 +262,13 @@ void FicheroIndice::leerRegistro2(unsigned long pos,char* cadena){
 		f.read(reinterpret_cast<char *>(cadena),tamRegistro);
 	}	
 }
-void FicheroIndice::leerEncabezado(int &columnas,int &tamaño,int &raiz){
+void FicheroIndice::leerEncabezado(int &columnas,int &tamano,int &raiz){
 
 	if(f.is_open()){
 		f.seekg (0, ios::beg);
 		f.read(reinterpret_cast<char *>(&columnas), sizeof(int) );
 		f.seekg (4, ios::beg);
-		f.read(reinterpret_cast<char *>(&tamaño), sizeof(int) );
+		f.read(reinterpret_cast<char *>(&tamano), sizeof(int) );
 		f.seekg (8, ios::beg);
 		f.read(reinterpret_cast<char *>(&raiz), sizeof(int) );
 	}	

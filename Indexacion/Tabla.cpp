@@ -1,5 +1,5 @@
 #include "Tabla.h"
-#include "ArbolB.h"
+#include "arbolB.h"
 #include <iostream>
 
 using namespace std;
@@ -27,10 +27,10 @@ void Tabla::crearTabla(string nombre, char * cadena){
 
 		RegistroDatos rd(4,58);
 
-		rd.añadir(0,cd1);
-		rd.añadir(1,cd2);
-		rd.añadir(2,cd3);
-		rd.añadir(3,cd4);
+		rd.anadir(0,cd1);
+		rd.anadir(1,cd2);
+		rd.anadir(2,cd3);
+		rd.anadir(3,cd4);
 			
 		if(f.crear(nombreV,rd)){
 
@@ -60,21 +60,21 @@ void Tabla::insertar(string nombre, char * cad){
 
 	if(f.abrir(nombreV)){
 
-		int tamaño ;
+		int tamano ;
 
-		f.leerTamaño(tamaño);
+		f.leerTamano(tamano);
 
 		int columnas;
 
 		f.leerNumeroColumnas(columnas);
 
-		char *cade= new char[tamaño];
-		f.leerEncabezado(tamaño,cade);
+		char *cade= new char[tamano];
+		f.leerEncabezado(tamano,cade);
 	
-		f.tamRegistro = tamaño;
-		f.posInicial = 10 +tamaño;
+		f.tamRegistro = tamano;
+		f.posInicial = 10 +tamano;
 
-		RegistroDatos registro(columnas,tamaño);
+		RegistroDatos registro(columnas,tamano);
 
 		CampoDatos c1 (8);
 		c1 = "mama";
@@ -88,10 +88,10 @@ void Tabla::insertar(string nombre, char * cad){
 		CampoDatos c4 (15);
 		c4 = "cornelio";
 
-		registro.añadir(0,c1);
-		registro.añadir(1,c2);
-		registro.añadir(2,c3);
-		registro.añadir(3,c4);
+		registro.anadir(0,c1);
+		registro.anadir(1,c2);
+		registro.anadir(2,c3);
+		registro.anadir(3,c4);
 
 		f.insertar(registro);
 
@@ -114,16 +114,16 @@ bool Tabla::cargar(string nombre){
 
 		
 		ordenArbol = 4;
-		int tamaño ;
-		f.leerTamaño(tamaño);
+		int tamano ;
+		f.leerTamano(tamano);
 
 		int columnas;
 		f.leerNumeroColumnas(columnas);
 
-		char *cade= new char[tamaño];
-		f.leerEncabezado(tamaño,cade);
+		char *cade= new char[tamano];
+		f.leerEncabezado(tamano,cade);
 
-		RegistroDatos temp (columnas,tamaño,cade);
+		RegistroDatos temp (columnas,tamano,cade);
 
 		encabezado = temp;
 
@@ -163,19 +163,19 @@ void Tabla::seleccionar(string nombre,string nombreC ,char *cadena){
 
 			ff.abrir("BaseDatos/salarios.txt");
 
-			int tamaño ;
+			int tamano ;
 
-		ff.leerTamaño(tamaño);
+		ff.leerTamano(tamano);
 
 		int columnas;
 
 		ff.leerNumeroColumnas(columnas);
 
-		char *cade= new char[tamaño];
-		ff.leerEncabezado(tamaño,cade);
+		char *cade= new char[tamano];
+		ff.leerEncabezado(tamano,cade);
 	
-		ff.tamRegistro = tamaño;
-		ff.posInicial = 10 +tamaño;
+		ff.tamRegistro = tamano;
+		ff.posInicial = 10 +tamano;
 				
 		ff.leerRegistro2(*pos,ca);
 
@@ -243,21 +243,21 @@ void Tabla::crearIndice(int columna){
 
 }
 
-void guardarCampo(FicheroIndice &f,nodoB* n,int &numeroC,int &tamañoC){
+void guardarCampo(FicheroIndice &f,nodoB* n,int &numeroC,int &tamanoC){
 
 	Campo campo;
 	Registro registro(numeroC,f.tamRegistro);
 	int i;
 	for(i=0;i<n->clavesUsadas;i++){
-		campo = Campo(tamañoC,n->claves[i].registro);
+		campo = Campo(tamanoC,n->claves[i].registro);
 		campo = n->claves[i].valor.c_str();
 
-		registro.añadir(i,campo);
+		registro.anadir(i,campo);
 	}
 
 	for(int k=i;k<registro.numeroCampos;k++){
-		campo = Campo(tamañoC,0);
-		registro.añadir(k,campo);
+		campo = Campo(tamanoC,0);
+		registro.anadir(k,campo);
 	}
 
 	

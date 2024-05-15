@@ -1,12 +1,12 @@
 #include "ArbolB+.h"
-#include "ArbolB.h"
+#include "arbolB.h"
 #include "AnalizadorLexico.h"
 #include "AnalizadorSintactico.h"
 //#include "Fichero.h"
-#include "tabla.h"
+#include "Tabla.h"
 
 
-void main(){
+int main(){
 
 /*	AnalizadorLexico lex;
 	ifstream texto("texto.txt");
@@ -89,5 +89,7 @@ void main(){
 
 	char c;
 	cin>>c;
+
+	return 0;
 
 }

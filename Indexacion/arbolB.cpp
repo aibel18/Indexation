@@ -1,4 +1,4 @@
-#include "ArbolB.h"
+#include "arbolB.h"
 int compara(string& c,string &cadena){
 
 	unsigned int temp = c.length() ;

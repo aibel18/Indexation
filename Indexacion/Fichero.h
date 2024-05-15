@@ -2,7 +2,8 @@
 #define Fichero_H
 
 #include <fstream>
-#include <String>
+// #include <string>
+#include <cstring>
 using namespace std;
 
 void convertirNumero(int *numero,char* cadena);
@@ -64,13 +65,13 @@ public:
 			CampoDatos temp(longitudColumna);
 			temp = cadena;//asignado el valor a temp
 			
-			añadir(i,temp);
+			anadir(i,temp);
 			
 			cadena = cadena + longitudColumna;
 		}
 	}
 
-	void añadir(int i,CampoDatos campo){
+	void anadir(int i,CampoDatos campo){
 		campos[i] = campo;
 	}
 	~RegistroDatos(){
@@ -98,13 +99,13 @@ public:
 	void leerRegistro(unsigned long pos,char* cadena);
 	void leerRegistro2(unsigned long pos,char* cadena);
 
-	void leerTamaño(int &);
+	void leerTamano(int &);
 	void leerNumeroColumnas(int &);
 	void leerEncabezado(int,char*);
 
 	void eliminarRegistro(unsigned long pos);	
 	void actualizar(unsigned long pos, const RegistroDatos &nuevoreg);
-	void compactar(); // Eliminar físicamente los borrados
+	void compactar(); // Eliminar fnsicamente los borrados
 	void vaciar(); // Eliminar todos los registros
 };
 
@@ -181,7 +182,7 @@ public:
 			Campo temp(longitudC,direccionC);
 			temp = cadena; //asignando el valor a temp
 			
-			añadir(i,temp);
+			anadir(i,temp);
 			
 			cadena = cadena + longitudC;
 		}
@@ -195,7 +196,7 @@ public:
 		}
 	}
 
-	void añadir(int i,Campo campo){
+	void anadir(int i,Campo campo){
 		campos[i] = campo;
 	}
 	~Registro(){
@@ -233,7 +234,7 @@ public:
 	void leerRegistro2(unsigned long pos, char*);
 	void eliminarRegistro(unsigned long pos);
 	void actualizar(unsigned long pos, const Registro &nuevoreg);
-	void compactar(); // Eliminar físicamente los borrados
+	void compactar(); // Eliminar fnsicamente los borrados
 	void vaciar(); // Eliminar todos los registros
 };
 

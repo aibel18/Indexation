@@ -1,5 +1,5 @@
 #include "Fichero.h"
-#include "ArbolB.h"
+#include "arbolB.h"
 
 void guardarCampo(FicheroIndice &f,nodoB* n,int &,int &j);
 void guardar(FicheroIndice &f,nodoB *Act,int &,int&j);
